@@ -1,26 +1,16 @@
-class Solution {
-
-    public static String isSortedAndHow(int[] array) {
-        int len = array.length;
-        int detector = 0;
-        for (int i = 1; i < len; ++i) {
-            if (array[i - 1] <= array[i]) {
-                detector = detector + 1;
+public class Solution {
+    public static String vaporcode(String s) {
+        int length = s.length();
+        s = s.toUpperCase();
+        String result = "";
+        for (int i = 0; i < length; ++i) {
+            if (Character.isWhitespace(s.charAt(i))) {
+                result = result;
+            } else {
+                result = result + (s.charAt(i)) + "  ";
             }
         }
-        if (detector == len - 1) {
-            return "yes, ascending";
-        }
-        detector = 0;
-        for (int i = 1; i < len; ++i) {
-            if (array[i - 1] >= array[i]) {
-                detector = detector + 1;
-            }
-        }
-        if (detector == len - 1) {
-            return "yes, descending";
-        }
-        return "no";
+        length = result.length();
+        return result.substring(0, length - 2);
     }
-
-}
+  
